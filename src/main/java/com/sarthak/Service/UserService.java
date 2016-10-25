@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserService {
     @RequestMapping(value = "/authenticate",method = RequestMethod.POST)
     public boolean authenticateUser(@RequestBody UserDTO userDTO){
+        System.out.println(userDTO.getName() + " + " + userDTO.getPassword());
         if(userDTO.getName().equals("sarthak") && userDTO.getPassword().equals("abc123"))
             return true;
         else

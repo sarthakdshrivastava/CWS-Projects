@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+
+            $(".submit_button").click(function () {
+                var User  = {
+                    name: $("#name").val(),
+                    password: $("#password").val()
+                };
+                $.ajax({
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    url: 'authenticate',
+                    type: 'post',
+                    dataType: 'json',
+                    data: JSON.stringify(User),
+
+                    success: function (data) {
+                        console.log(data);
+                    }
+
+                })
+            });
+        });
+    </script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    Name : <input id="name" type="text"/><br>
+    Password : <input id="password" type="text"/><br>
+    <button class="submit_button" type="button">Submit</button>
+</body>
+</html>
