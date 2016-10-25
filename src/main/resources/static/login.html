@@ -22,7 +22,11 @@
                     data: JSON.stringify(User),
 
                     success: function (data) {
-                        console.log(data);
+                        var validation_string="User not authenticated";
+                        if(data == true){
+                            validation_string="User authenticated";
+                        }
+                        $("#validation_message").text(validation_string);
                     }
 
                 })
@@ -36,5 +40,6 @@
     Name : <input id="name" type="text"/><br>
     Password : <input id="password" type="text"/><br>
     <button class="submit_button" type="button">Submit</button>
+    <p id="validation_message"></p>
 </body>
 </html>
